@@ -1,14 +1,13 @@
 from Pages.SearchResultsPage import SearchResultsPage
 from Utilities.properties import Properties
 from selenium import webdriver
-from Pages.BasePage import BasePage
 from Pages.SearchPage import SearchPage
 from webdriver_manager.chrome import ChromeDriverManager
 
 
 class Part1:
 
-    # Just plain part-1 implementation and tests not using pytest and fixtures. Meant to test functions in POM
+    # Just plain part-1 implementation not using pytest and fixtures. Meant to test functions in POM
 
     def __init__(self):
         self.driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())

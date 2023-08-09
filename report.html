@@ -253,10 +253,10 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>MN coding test report</h1>
-    <p>Report generated on 09-Aug-2023 at 15:01:29 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
+    <p>Report generated on 09-Aug-2023 at 16:25:06 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
     <h2>Summary</h2>
-    <p>2 tests ran in 26.65 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">0 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">2 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>2 tests ran in 15.64 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">2 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -267,39 +267,38 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
           <th class="sortable links" col="links">Links</th></tr>
         <tr hidden="true" id="not-found-message">
           <th colspan="4">No results found. Try to check the filters</th></tr></thead>
-      <tbody class="failed results-table-row">
+      <tbody class="passed results-table-row">
         <tr>
-          <td class="col-result">Failed</td>
+          <td class="col-result">Passed</td>
           <td class="col-name">Tests/test_part2.py::TestPart2::test_image_source</td>
-          <td class="col-duration">17.70</td>
+          <td class="col-duration">7.70</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div><div><img src="screenshot181509082023.png" alt="screenshot" style="width:304px;height:228px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log">self = &lt;Tests.test_part2.TestPart2 object at 0x0000024811687CA0&gt;<br/><br/>    def test_image_source(self):<br/>        print(&quot;\n TEST RUNNING : test_image_source&quot;)<br/>        search_results_page = self.navigateToPage()<br/>&gt;       source_is_present = search_results_page.checkSourceOfImage(Properties.SOURCE_WEBSITE)<br/><br/>Tests\test_part2.py:12: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>Pages\SearchResultsPage.py:43: in checkSourceOfImage<br/>    imageUrls = self.get_image_urls()<br/>Pages\SearchResultsPage.py:19: in get_image_urls<br/>    WebDriverWait(self.driver, 10).until(EC.presence_of_all_elements_located(self.imageLinks))<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;selenium.webdriver.support.wait.WebDriverWait (session=&quot;460f71f7075fc780cbda77c2023e7ea5&quot;)&gt;<br/>method = &lt;selenium.webdriver.support.expected_conditions.presence_of_all_elements_located object at 0x00000248116D5810&gt;, message = &#x27;&#x27;<br/><br/>    def until(self, method, message=&#x27;&#x27;):<br/>        &quot;&quot;&quot;Calls the method provided with the driver as an argument until the \<br/>        return value is not False.&quot;&quot;&quot;<br/>        screen = None<br/>        stacktrace = None<br/>    <br/>        end_time = time.time() + self._timeout<br/>        while True:<br/>            try:<br/>                value = method(self._driver)<br/>                if value:<br/>                    return value<br/>            except self._ignored_exceptions as exc:<br/>                screen = getattr(exc, &#x27;screen&#x27;, None)<br/>                stacktrace = getattr(exc, &#x27;stacktrace&#x27;, None)<br/>            time.sleep(self._poll)<br/>            if time.time() &gt; end_time:<br/>                break<br/>&gt;       raise TimeoutException(message, screen, stacktrace)<br/><span class="error">E       selenium.common.exceptions.TimeoutException: Message:</span><br/><br/>..\..\AppData\Roaming\Python\Python310\site-packages\selenium\webdriver\support\wait.py:80: TimeoutException<br/> -----------------------------Captured stdout setup------------------------------ <br/>=========================
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>=========================
 TEST EXECUTION STARTED
 =========================
 <br/> ------------------------------Captured stdout call------------------------------ <br/>
  TEST RUNNING : test_image_source
+Source found in http://wallpapercave.com/wp/Aw8HGgD.jpg&amp;va=t&amp;t=hl
 <br/> ----------------------------Captured stdout teardown---------------------------- <br/>=========================
 TEST EXECUTION COMPLETED
 =========================
 <br/></div></td></tr></tbody>
-      <tbody class="failed results-table-row">
+      <tbody class="passed results-table-row">
         <tr>
-          <td class="col-result">Failed</td>
+          <td class="col-result">Passed</td>
           <td class="col-name">Tests/test_part2.py::TestPart2::test_word_in_title</td>
-          <td class="col-duration">8.52</td>
+          <td class="col-duration">7.90</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div><div><img src="screenshot261509082023.png" alt="screenshot" style="width:304px;height:228px;" onclick="window.open(this.src)" align="right"/></div></div>
-            <div class="log">self = &lt;Tests.test_part2.TestPart2 object at 0x0000024811687C40&gt;<br/><br/>    def test_word_in_title(self):<br/>        print(&quot;\n TEST RUNNING : test_word_in_title&quot;)<br/>        search_results_page = self.navigateToPage()<br/>        word_is_present = search_results_page.check_words_exist(Properties.WORDS_TO_CHECK)<br/>        # print(word_is_present)<br/>        word_is_present = False<br/>&gt;       assert word_is_present<br/><span class="error">E       assert False</span><br/><br/>Tests\test_part2.py:21: AssertionError<br/> -----------------------------Captured stdout setup------------------------------ <br/>=========================
+            <div class="log"> -----------------------------Captured stdout setup------------------------------ <br/>=========================
 TEST EXECUTION STARTED
 =========================
 <br/> ------------------------------Captured stdout call------------------------------ <br/>
  TEST RUNNING : test_word_in_title
-Word found in Best Large Luxury Cars for 2023 - Forbes Wheels
+Word found in U.S. News Best Luxury Car Brands for 2023 | U.S. News
 <br/> ----------------------------Captured stdout teardown---------------------------- <br/>=========================
 TEST EXECUTION COMPLETED
 =========================

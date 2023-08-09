@@ -16,8 +16,8 @@ class TestPart2:
         print("\n TEST RUNNING : test_word_in_title")
         search_results_page = self.navigateToPage()
         word_is_present = search_results_page.check_words_exist(Properties.WORDS_TO_CHECK)
-        # print(word_is_present)
-        word_is_present = False
+        # can uncomment below to see the generated report with screenshot in case of failed tests
+        # word_is_present = False
         assert word_is_present
 
     def navigateToPage(self):

@@ -7,13 +7,11 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class SearchResultsPage:
-
     imageLinks = (By.XPATH, "//div[@class=\"module module--images\"]//a[@class=\"module--images__thumbnails__link\"]")
     searchResults = (By.XPATH, "//h2/a/span")
 
     def __init__(self, driver):
         self.driver = driver
-        # super().__init__(driver)
 
     def get_image_urls(self):
         WebDriverWait(self.driver, 10).until(EC.presence_of_all_elements_located(self.imageLinks))

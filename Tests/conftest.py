@@ -1,13 +1,8 @@
-
-
 import pytest
 from selenium import webdriver
-from selenium.webdriver.support.wait import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
-from datetime import datetime
 from Utilities.properties import Properties
-from pathlib import Path
 
 
 @pytest.fixture(scope="function")
@@ -34,9 +29,9 @@ def setup(request):
     driver.quit()
 
 
+# below code is for generating screenshot and attaching it to the html report
 @pytest.hookimpl(hookwrapper=True)
-def pytest_runtest_makereport(item, call):
-    now = datetime.now()
+def pytest_runtest_makereport(item):
     pytest_html = item.config.pluginmanager.getplugin('html')
     outcome = yield
     report = outcome.get_result()
@@ -44,24 +39,15 @@ def pytest_runtest_makereport(item, call):
     if report.when == 'call' or report.when == "setup":
         xfail = hasattr(report, 'wasxfail')
         if (report.skipped and xfail) or (report.failed and not xfail):
-            # file_name = report.nodeid.replace("::", "_") + ".png"
-            file_name = "screenshot" + now.strftime("%S%H%d%m%Y") + ".png"
+            # getting name of test case from item
+            test_name = item.nodeid.replace("::", "_").replace("/", "_").replace("(", "_").replace(")", "_")
+            file_name = test_name + "screenshot.png"
             _capture_screenshot(file_name)
             if file_name:
                 html = '<div><img src="%s" alt="screenshot" style="width:304px;height:228px;" ' \
                        'onclick="window.open(this.src)" align="right"/></div>' % file_name
                 extra.append(pytest_html.extras.html(html))
         report.extra = extra
-
-
-@pytest.hookimpl(tryfirst=True)
-def pytest_configure(config):
-    now = datetime.now()
-    report_dir = Path('Reports', now.strftime("%S%H%d%m%Y"))
-    report_dir.mkdir(parents=True, exist_ok=True)
-    pytest_html = report_dir / f"report_{now.strftime('%H%M%S')}.html"
-    config.option.htmlpath = pytest_html
-    config.option.self_contained_html = True
 
 
 def _capture_screenshot(name):
