@@ -1,12 +1,12 @@
-
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from Pages.BasePage import BasePage
 
 
-class SearchResultsPage(BasePage):
+# from Pages.BasePage import BasePage
 
+
+class SearchResultsPage:
 
     imageLinks = (By.XPATH, "//div[@class=\"module module--images\"]//a[@class=\"module--images__thumbnails__link\"]")
     searchResults = (By.XPATH, "//h2/a/span")
@@ -21,8 +21,6 @@ class SearchResultsPage(BasePage):
         image_urls = []
         for element in image_elements:
             google_url = element.get_attribute("href")
-            # print(google_url)
-            # print(self.get_site_url(google_url))
             image_urls.append(self.get_site_url(google_url))
         return image_urls
 
@@ -33,13 +31,11 @@ class SearchResultsPage(BasePage):
             start_index = google_url.find("http://", google_url.find("https://") + len("http://"))
         return google_url[start_index:]
 
-
     def get_search_titles(self):
         WebDriverWait(self.driver, 10).until(EC.presence_of_all_elements_located(self.searchResults))
         result_elements = self.driver.find_elements(*self.searchResults)
         titles = []
         for title in result_elements:
-            print(title.text)
             titles.append(title.text)
         return titles
 
